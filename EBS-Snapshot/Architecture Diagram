@@ -1,0 +1,25 @@
+## Architecture Diagram
+
+```text
+                +-------------------+
+                |   AWS Lambda      |
+                |  Python + Boto3   |
+                +----------+--------+
+                           |
+                           v
+                +-------------------+
+                |    S3 Bucket      |
+                | List Objects      |
+                +----------+--------+
+                           |
+          -----------------------------------
+          |                                 |
+          v                                 v
+ Delete files > 30 days          Keep recent files
+
+                           |
+                           v
+                +-------------------+
+                |  CloudWatch Logs  |
+                +-------------------+
+```
