@@ -1,0 +1,25 @@
+## Architecture Diagram
+
+```text
+                +-------------------+
+                |   AWS Lambda      |
+                |  Python + Boto3   |
+                +----------+--------+
+                           |
+        -----------------------------------------
+        |                                       |
+        v                                       v
++-------------------+               +-------------------+
+| EC2 Instance      |               | EC2 Instance      |
+| Tag: Auto-Stop    |               | Tag: Auto-Start   |
++-------------------+               +-------------------+
+        |                                       |
+        v                                       v
+   Stop Instance                         Start Instance
+
+                           |
+                           v
+                +-------------------+
+                |  CloudWatch Logs  |
+                +-------------------+
+```
