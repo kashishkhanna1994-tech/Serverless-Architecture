@@ -1,0 +1,25 @@
+## Architecture Diagram
+
+```text
+                +-------------------+
+                |   AWS Lambda      |
+                |  Python + Boto3   |
+                +----------+--------+
+                           |
+                           v
+                +-------------------+
+                |    EBS Volumes    |
+                +----------+--------+
+                           |
+          -----------------------------------
+          |                                 |
+          v                                 v
+ Create New Snapshot            Delete Old Snapshots
+                                (> Retention Period)
+
+                           |
+                           v
+                +-------------------+
+                |  CloudWatch Logs  |
+                +-------------------+
+```
